@@ -1,8 +1,10 @@
 {
   "cliente": "telas-padrao",
-  "concorrente_referencia": "paperplast.com.br",
+  "concorrente_referencia": "catumbitelas.com.br",
+  "concorrentes_confirmados": ["catumbitelas.com.br", "telasmm.com.br", "teciam.com.br"],
   "gerado_em": "2026-08-26",
-  "nota": "Proposta de arquitetura de URLs, adaptada do concorrente líder ao escopo real da Telas Padrão (telas metálicas apenas). Aguardando aprovação humana (Gate Humano 1) no projeto.md.",
+  "revisado_em": "2026-08-26",
+  "nota": "Proposta de arquitetura de URLs, adaptada do concorrente líder ao escopo real da Telas Padrão (telas metálicas apenas). Lista de concorrentes revisada a pedido da Priscila: paperplast.com.br e casadascercas.com.br removidos (não são concorrentes diretos), substituídos por telasmm.com.br e teciam.com.br. Aguardando aprovação humana (Gate Humano 1) no projeto.md.",
   "paginas": [
     {
       "slug": "/",
@@ -35,9 +37,9 @@
     {
       "slug": "/tela-de-aco-inox/",
       "silo": "Tela de Aço Inox",
-      "kw_principal": "tela de aço inox",
-      "volume_mes": 70,
-      "status": "gap"
+      "kw_principal": "tela de aço",
+      "volume_mes": 3600,
+      "status": "gap — telasmm.com.br tem página dedicada equivalente"
     },
     {
       "slug": "/alambrado/",

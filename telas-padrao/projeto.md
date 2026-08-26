@@ -53,19 +53,21 @@ slug: telas-padrao
 > Profissão não regulada — Bloco 3 do onboarding não se aplica.
 
 ## Concorrentes (ORGANICOS — nao patrocinados)
-1. paperplast.com.br (concorrente líder)
-2. casadascercas.com.br
-3. catumbitelas.com.br
+1. catumbitelas.com.br (concorrente líder)
+2. telasmm.com.br
+3. teciam.com.br
 
 | Concorrente | Domínio | DA | Tráfego orgânico (nacional) | KWs de overlap |
 |---|---|---|---|---|
-| Paperplast | paperplast.com.br | 37 | ~71.626/mês | tela soldada, alambrado, tela soldada galvanizada |
-| Casa das Cercas | casadascercas.com.br | 25 | ~11.720/mês | tela soldada, alambrado, tela soldada galvanizada |
-| Catumbi Telas | catumbitelas.com.br | 10 | ~14.713/mês | tela soldada, alambrado, tela soldada galvanizada |
+| Catumbi Telas | catumbitelas.com.br | 10 | ~14.713/mês | tela soldada, alambrado |
+| Telas MM | telasmm.com.br | 18 | ~1.916/mês | tela soldada, tela de aço (inox) |
+| Teciam | teciam.com.br | 22 | ~441/mês | tela soldada, tela ondulada |
 
-Concorrente líder (maior tráfego): **paperplast.com.br** — usado na Etapa 6 (arquiteto-seo).
+Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 6 (arquiteto-seo).
 
-> Metodologia: SERP overlap em 4 KWs transacionais com volume real (locId nacional 2076 — negócio de entrega nacional, não hiperlocal): "tela soldada", "alambrado", "tela soldada galvanizada", "tela ondulada". Domínios que apareceram em 3+ buscas = concorrente confirmado. `loja.telasvitoria.com` também apareceu em 3 buscas mas foi EXCLUÍDO por `domain_overview` mostrar tráfego orgânico zerado desde 03/2025 (negócio aparentemente inativo). Excluídos por padrão: marketplaces (Mercado Livre, Shopee, Leroy Merlin) e resultados não-orgânicos (imagens, PAA, popular_products).
+> Lista revisada em 2026-08-26 a pedido da Priscila: `paperplast.com.br` (catálogo principal é lona plástica, não tela metálica) e `casadascercas.com.br` (e-commerce de cercas em geral, não fabricante de tela metálica sob medida) foram RETIRADOS por não serem concorrentes diretos do negócio da Telas Padrão. Substituídos por `teciam.com.br` e `telasmm.com.br` — ambos fabricantes de telas metálicas sob medida (soldada, ondulada, aço inox/tecido metálico), catálogo muito mais próximo do da Telas Padrão. `catumbitelas.com.br` foi mantido (confirmado por SERP overlap e vende telas metálicas, ainda que também venda mosquiteiras/redes).
+>
+> Metodologia original (SERP overlap): 4 KWs transacionais com volume real (locId nacional 2076): "tela soldada", "alambrado", "tela soldada galvanizada", "tela ondulada". `teciam.com.br` e `telasmm.com.br` apareceram nessas buscas (posições 9 e 23 respectivamente, na SERP de "tela ondulada") mas com tráfego menor que os domínios inicialmente escolhidos — priorizados agora por relevância de catálogo (decisão da Priscila) em vez de só volume de overlap.
 
 ## ICP (Fase 1)
 - Servicos (priorizados por receita, a partir do catálogo atual do site + volume real):
@@ -80,7 +82,7 @@ Concorrente líder (maior tráfego): **paperplast.com.br** — usado na Etapa 6 
 ## SERP da KW principal (Fase 1)
 > Preenchido por `serp_analysis` (Ubersuggest) em `fase1-planejamento`. KW: "tela soldada" — 9.900 buscas/mês (Brasil), SD 14.
 - Local pack (3-pack): ( ) nao — negócio de entrega nacional via e-commerce, sem local pack nesta KW
-- Top 3 organico: casadascercas.com.br (pos. 2), catumbitelas.com.br (pos. 4), paperplast.com.br (pos. 5)
+- Top 3 organico real da SERP: casadascercas.com.br (pos. 2), catumbitelas.com.br (pos. 4), paperplast.com.br (pos. 5) — os 2 primeiros não são tratados como concorrentes de conteúdo (ver nota em Concorrentes); `teciam.com.br` aparece na posição 12 e `telasmm.com.br` na posição 35 para esta mesma KW.
 - Featured snippet: ( ) nao detectado
 - PAA (People Also Ask): presente na SERP (posição 6), conteúdo não extraído — ver nota em H2s dos Concorrentes
 
@@ -91,9 +93,9 @@ Concorrente líder (maior tráfego): **paperplast.com.br** — usado na Etapa 6 
   - Silo "Telas Soldadas" (nível 1, já existe em `/telas_soldadas/` e `/telas_soldadas_modelos/`) — inclui aplicações (construção civil, cercamento, viveiro/agropecuária)
   - Silo "Telas Onduladas" (nível 1, já existe em `/telas_onduladas/`)
   - Silo "Tela de Aço Inox" (nível 1, GAP — hoje só existe como menção em página comparativa, sem página de produto dedicada)
-  - Silo "Alambrado / Cercamento" (nível 1, GAP — maior volume de busca do nicho, 22.200/mês em "alambrado", nenhuma página dedicada hoje; os 3 concorrentes têm)
+  - Silo "Alambrado / Cercamento" (nível 1, GAP — maior volume de busca do nicho, 22.200/mês em "alambrado", nenhuma página dedicada hoje; catumbitelas.com.br tem)
   - Blog/comparativos técnicos (nível 1, já existe: `/tela-ondulada-ou-tela-eletrosoldada-qual-a-melhor-para-o-seu-projeto/`)
-- Mapa de URLs: ver `arquiteto-seo/estrategia_seo_paperplast.com.br.md` e `arquiteto-seo/paginas.json` — gerados a partir de `domain_top_pages`/`domain_overview` do concorrente líder (paperplast.com.br), sem crawl completo (sandbox de rede desta sessão bloqueia WebFetch para domínios externos — ver nota nas H2s dos Concorrentes)
+- Mapa de URLs: ver `arquiteto-seo/estrategia_seo_catumbitelas.com.br.md` e `arquiteto-seo/paginas.json` — gerados a partir de `domain_top_pages`/`domain_overview` do concorrente líder (catumbitelas.com.br), sem crawl completo (sandbox de rede desta sessão bloqueia WebFetch para domínios externos — ver nota nas H2s dos Concorrentes)
 
 ## Money Pages
 > wp_post_id não preenchido — WordPress do cliente ainda não conectado via Novamira nesta sessão (ver Ambiente de Publicacao). "—" nas linhas GAP = página ainda não existe.
@@ -107,7 +109,7 @@ Concorrente líder (maior tráfego): **paperplast.com.br** — usado na Etapa 6 
 | /tela-ondulada-ou-tela-eletrosoldada-qual-a-melhor-para-o-seu-projeto/ | — | telas corrugadas | 260/mes | — | pendente (existe, é blog comparativo — manter como conteúdo de apoio, não money page) |
 | /tela-ondulada-ou-tela-eletrosoldada-qual-a-melhor-para-o-seu-projeto-3/ | — | tipos de tela metálica | 170/mes | — | pendente (existe, variante da página acima — avaliar consolidar/canonicalizar) |
 | /alambrado/ (a criar) | — | alambrado | 22.200/mes | — | pendente (GAP — maior volume do nicho, os 3 concorrentes têm página dedicada) |
-| /tela-de-aco-inox/ (a criar) | — | tela de aço inox | 70/mes (local SP; nacional não medido) | — | pendente (GAP — cliente já cita "aço inox" no catálogo, sem página de produto própria) |
+| /tela-de-aco-inox/ (a criar) | — | tela de aço | 3.600/mes (nacional) | — | pendente (GAP — telasmm.com.br rankeia pos. 26 nesta KW com página dedicada de "tecidos metálicos de aço inoxidável"; cliente já cita "aço inox" no catálogo mas sem página de produto própria) |
 
 ## Artigos / Clusters (v1.1)
 
@@ -130,7 +132,7 @@ Concorrente líder (maior tráfego): **paperplast.com.br** — usado na Etapa 6 
 
 ## Estado das Fases
 - auditoria_global: não rodada — cliente não tem WordPress/Novamira conectado nesta sessão; não avaliado se o site atual é WordPress
-- guardiao_fase1: PASS PARCIAL em 2026-08-26 — kw_principal com volume real, 3 concorrentes confirmados por SERP overlap, baseline real via domain_overview e Money Pages reconciliadas. FALTAM: H2s dos concorrentes (WebFetch bloqueado pelo proxy de rede desta sessão para domínios externos) e aprovação humana da arquitetura (Gate Humano 1).
+- guardiao_fase1: PASS PARCIAL em 2026-08-26 (lista de concorrentes revisada no mesmo dia a pedido da Priscila — ver nota em Concorrentes) — kw_principal com volume real, 3 concorrentes definidos (relevância de catálogo + SERP overlap), baseline real via domain_overview e Money Pages reconciliadas. FALTAM: H2s dos concorrentes (WebFetch bloqueado pelo proxy de rede desta sessão para domínios externos) e aprovação humana da arquitetura (Gate Humano 1).
 - [x] Fase 1 Planejamento  [ ] .approved — aguardando aprovação da Priscila da arquitetura proposta
 - [ ] Fase 2 Site
 - [ ] Fase 3 Conteudo      [ ] .publish-approved
@@ -142,13 +144,15 @@ Concorrente líder (maior tráfego): **paperplast.com.br** — usado na Etapa 6 
 
 | Concorrente | URL | KW provavel | Trafego/mes | Backlinks | Tipo |
 |---|---|---|---|---|---|
-| paperplast.com.br | /tela-metalica/tela-para-cerca.html | tela para cerca | 4.466 | 11 | transacional (money page — cerca/alambrado/soldada) |
-| paperplast.com.br | /tela-metalica/tela-soldada.html | tela soldada | 473 | 12 | transacional (equivalente à página do cliente) |
-| paperplast.com.br | /telas-de-protecao/tela-alambrado.html | alambrado | 346 | 6 | transacional (gap — cliente não tem página de alambrado) |
-| casadascercas.com.br | /telas-alambrado/ | alambrado | 7.167 | — | transacional (money page principal do silo alambrado) |
-| casadascercas.com.br | /tela-alambrado-soldada-fio-230mm-malha-5x15cm | tela soldada / alambrado preço | 4.764 | — | transacional (produto — tela soldada aplicada a alambrado) |
-| casadascercas.com.br | /tela-galvanizada-morada-leve-fio-1.90 | tela soldada galvanizada | 1.209 | — | transacional (produto) |
 | catumbitelas.com.br | /telas/construcao-civil/tela-soldada-malha-75mm-x-50mm-fio-2-10-mm-largura-de-2-00m-preco-por-metro | tela soldada | 1.214 | — | transacional (equivalente à página do cliente) |
+| catumbitelas.com.br | /casa-e-jardim/alambrado-galvanizado-malha-3-fio-2-75-mm-altura-2m-preco-por-metro | alambrado / preço de alambrado | 128 | — | transacional (gap — cliente não tem página de alambrado) |
+| catumbitelas.com.br | /tela-soldada-galv-pesada-m25x25mm-f1-24mm-25-00x0-50m | tela soldada galvanizada pesada | 104 | — | transacional (produto — variante de malha) |
+| telasmm.com.br | /fabricante-de-tela-soldada.php | tela soldada | 17 | — | transacional (equivalente à página do cliente) |
+| telasmm.com.br | /fabricante-de-tecidos-metalicos-de-aco-inoxidavel.php | tela de aço (inox) | 5 | — | transacional (gap — cliente não tem página dedicada de aço inox) |
+| telasmm.com.br | /fabricante-de-tela-ondulada-artistica.php | tela artística ondulada | 8 | — | transacional (variante do silo Telas Onduladas) |
+| teciam.com.br | /telas-soldadas-diferenciais-e-uso/ | tela soldada / telas soldada | 128 | — | transacional (equivalente à página do cliente) |
+| teciam.com.br | /tela-soldada-x-tela-ondulada-qual-a-melhor-para-o-seu-projeto/ | tela ondulada | 83 | — | não-transacional (blog comparativo — mesmo formato do blog já existente do cliente) |
+| teciam.com.br | /telas-revestimento/ | telinco telas / tela para reboco | 1 | — | transacional (cauda longa — não prioritário) |
 
 ## H2s dos Concorrentes (por KW)
 > Preenchido por fase1-planejamento (ETAPA 5) para a kw_principal, e por fase3-conteudo (ETAPA 2B) para cada Money Page ao ser escrita.
@@ -156,10 +160,10 @@ Concorrente líder (maior tráfego): **paperplast.com.br** — usado na Etapa 6 
 > AUSENTE para uma KW = fase3-conteudo roda serp_analysis. NUNCA cai em template sem buscar primeiro.
 
 ### KW: tela soldada
-> ⚠️ H2s NÃO extraídos nesta sessão — `WebFetch` está bloqueado pelo proxy de rede do ambiente para todos os domínios externos testados (casadascercas.com.br, catumbitelas.com.br, paperplast.com.br retornaram `EGRESS_BLOCKED`). Rodar novamente quando o WebFetch estiver disponível, antes da Fase 3 escrever a Money Page de "tela soldada" — NUNCA cair em template sem essa busca.
-- Concorrente 1: http://www.casadascercas.com.br/tela-alambrado-soldada-fio-230mm-malha-5x15cm — H2s: (a extrair)
-- Concorrente 2: http://www.catumbitelas.com.br/telas/construcao-civil/tela-soldada-malha-75mm-x-50mm-fio-2-10-mm-largura-de-2-00m-preco-por-metro — H2s: (a extrair)
-- Concorrente 3: http://www.paperplast.com.br/tela-metalica/tela-soldada.html — H2s: (a extrair)
+> ⚠️ H2s NÃO extraídos nesta sessão — `WebFetch` está bloqueado pelo proxy de rede do ambiente para todos os domínios externos testados (`EGRESS_BLOCKED`). Rodar novamente quando o WebFetch estiver disponível, antes da Fase 3 escrever a Money Page de "tela soldada" — NUNCA cair em template sem essa busca.
+- Concorrente 1: http://www.catumbitelas.com.br/telas/construcao-civil/tela-soldada-malha-75mm-x-50mm-fio-2-10-mm-largura-de-2-00m-preco-por-metro — H2s: (a extrair)
+- Concorrente 2: http://telasmm.com.br/fabricante-de-tela-soldada.php — H2s: (a extrair)
+- Concorrente 3: http://teciam.com.br/telas-soldadas-diferenciais-e-uso/ — H2s: (a extrair)
 
 
 ## Raio-X Tecnico (Fase 2)
