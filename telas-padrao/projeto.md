@@ -41,7 +41,7 @@ slug: telas-padrao
 > NUNCA reutilizar inventário de outro cliente — cada molde tem IDs de widget únicos.
 
 ## Tom de Voz / Restricoes
-- Tom: [A DEFINIR — pendente de aprovação do cliente]
+- Tom: Técnico e direto — profissional, objetivo, reforça precisão/qualidade técnica do produto sob medida (telas soldadas, alambrado, aço inox), sem termos rebuscados, focado em especificações e prazo. Definido pela Priscila em 2026-08-26.
 - Profissao regulada? (OAB/CFM/CFO/CONAR): Não
 - `regulado: false`
 
