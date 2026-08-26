@@ -1,0 +1,57 @@
+{
+  "cliente": "telas-padrao",
+  "concorrente_referencia": "paperplast.com.br",
+  "gerado_em": "2026-08-26",
+  "nota": "Proposta de arquitetura de URLs, adaptada do concorrente líder ao escopo real da Telas Padrão (telas metálicas apenas). Aguardando aprovação humana (Gate Humano 1) no projeto.md.",
+  "paginas": [
+    {
+      "slug": "/",
+      "silo": "institucional",
+      "kw_principal": "telas padrão",
+      "volume_mes": 320,
+      "status": "existe"
+    },
+    {
+      "slug": "/telas_soldadas/",
+      "silo": "Telas Soldadas",
+      "kw_principal": "tela soldada",
+      "volume_mes": 9900,
+      "status": "existe — otimizar"
+    },
+    {
+      "slug": "/telas_soldadas_modelos/",
+      "silo": "Telas Soldadas",
+      "kw_principal": "modelos de tela",
+      "volume_mes": 720,
+      "status": "existe"
+    },
+    {
+      "slug": "/telas_onduladas/",
+      "silo": "Telas Onduladas",
+      "kw_principal": "tela ondulada",
+      "volume_mes": 2400,
+      "status": "existe — checar indexação"
+    },
+    {
+      "slug": "/tela-de-aco-inox/",
+      "silo": "Tela de Aço Inox",
+      "kw_principal": "tela de aço inox",
+      "volume_mes": 70,
+      "status": "gap"
+    },
+    {
+      "slug": "/alambrado/",
+      "silo": "Alambrado/Cercamento",
+      "kw_principal": "alambrado",
+      "volume_mes": 22200,
+      "status": "gap — maior prioridade"
+    },
+    {
+      "slug": "/tela-ondulada-ou-tela-eletrosoldada-qual-a-melhor-para-o-seu-projeto/",
+      "silo": "Blog técnico",
+      "kw_principal": "telas corrugadas",
+      "volume_mes": 260,
+      "status": "existe — conteúdo de apoio"
+    }
+  ]
+}
