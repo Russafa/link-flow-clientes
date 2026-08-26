@@ -17,7 +17,7 @@ slug: telas-padrao
 - Endereco: R. Periperi, 348 - Vila Socorro, São Paulo - SP
 - CEP: 04760-060
 - Telefone: Vendas (11) 93346-0625 | Financeiro (11) 5523-9198
-> Nome, endereço e telefone confirmados pela Priscila em 2026-08-26. Razão Social/CNPJ ainda NÃO preenchidos — a busca web trouxe 2 CNPJs candidatos ("Telas Padrao Industria e Comercio LTDA" 44.447.874/0001-67 e "Telas Padrao Comercio de Ferragens LTDA" 31.694.661/0001-98) sem confirmação de qual está de fato vinculado a telaspadrao.com.br. Confirmar antes de usar em schema/GBP.
+> Nome, endereço e telefone confirmados pela Priscila em 2026-08-26. Razão Social/CNPJ não coletados neste onboarding (decisão da Priscila) — se necessário para schema Organization/GBP nas fases seguintes, coletar então.
 
 ## Horario de Atendimento
 - Dias e horarios: Segunda a sexta, 07h às 18h.
