@@ -87,8 +87,8 @@ Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 
 - PAA (People Also Ask): presente na SERP (posição 6), conteúdo não extraído — ver nota em H2s dos Concorrentes
 
 ## Arquitetura Aprovada (Gate Humano 1)
-- `approved: false`
-- `approved_at`:
+- `approved: true`
+- `approved_at`: 2026-08-27
 - Silos / categorias (proposta — aguardando aprovação da Priscila):
   - Silo "Telas Soldadas" (nível 1, já existe em `/telas_soldadas/` e `/telas_soldadas_modelos/`) — inclui aplicações (construção civil, cercamento, viveiro/agropecuária)
   - Silo "Telas Onduladas" (nível 1, já existe em `/telas_onduladas/`)
@@ -132,8 +132,8 @@ Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 
 
 ## Estado das Fases
 - auditoria_global: não rodada — cliente não tem WordPress/Novamira conectado nesta sessão; não avaliado se o site atual é WordPress
-- guardiao_fase1: PASS PARCIAL em 2026-08-26 (lista de concorrentes revisada no mesmo dia a pedido da Priscila — ver nota em Concorrentes) — kw_principal com volume real, 3 concorrentes definidos (relevância de catálogo + SERP overlap), baseline real via domain_overview e Money Pages reconciliadas. FALTAM: H2s dos concorrentes (WebFetch bloqueado pelo proxy de rede desta sessão para domínios externos) e aprovação humana da arquitetura (Gate Humano 1).
-- [x] Fase 1 Planejamento  [ ] .approved — aguardando aprovação da Priscila da arquitetura proposta
+- guardiao_fase1: PASS PARCIAL em 2026-08-26 (lista de concorrentes revisada no mesmo dia a pedido da Priscila — ver nota em Concorrentes) — kw_principal com volume real, 3 concorrentes definidos (relevância de catálogo + SERP overlap), baseline real via domain_overview e Money Pages reconciliadas. FALTA: H2s dos concorrentes (WebFetch bloqueado pelo proxy de rede desta sessão para domínios externos) — rodar antes de escrever a Money Page de "tela soldada" na Fase 3.
+- [x] Fase 1 Planejamento  [x] .approved (2026-08-27) — arquitetura (4 silos: Telas Soldadas, Telas Onduladas, Tela de Aço Inox, Alambrado/Cercamento) aprovada pela Priscila
 - [ ] Fase 2 Site
 - [ ] Fase 3 Conteudo      [ ] .publish-approved
 - [ ] Fase 5 GMN
