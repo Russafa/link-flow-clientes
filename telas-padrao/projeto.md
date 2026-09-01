@@ -134,7 +134,7 @@ Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 
 - auditoria_global: não rodada — cliente não tem WordPress/Novamira conectado nesta sessão; não avaliado se o site atual é WordPress
 - guardiao_fase1: PASS PARCIAL em 2026-08-26 (lista de concorrentes revisada no mesmo dia a pedido da Priscila — ver nota em Concorrentes) — kw_principal com volume real, 3 concorrentes definidos (relevância de catálogo + SERP overlap), baseline real via domain_overview e Money Pages reconciliadas. FALTA: H2s dos concorrentes (WebFetch bloqueado pelo proxy de rede desta sessão para domínios externos) — rodar antes de escrever a Money Page de "tela soldada" na Fase 3.
 - [x] Fase 1 Planejamento  [x] .approved (2026-08-27) — arquitetura (4 silos: Telas Soldadas, Telas Onduladas, Tela de Aço Inox, Alambrado/Cercamento) aprovada pela Priscila
-- [ ] Fase 2 Site
+- [ ] Fase 2 Site — BLOQUEADA em 2026-08-27: esta sessão (remota, escopo GitHub) não tem Novamira/WordPress conectado para telaspadrao.com.br e o classificador de permissões bloqueou a instalação do Novamira CLI (`curl | sh` e até `npm view`) e o WebFetch a domínios externos. Priscila vai rodar `novamira auth login 'https://telaspadrao.com.br/'` em outro ambiente (Claude Code local, sem essa restrição) e retomar a Fase 2 a partir daí — Raio-X Técnico, molde de Money Page e `_elementor_data` dependem dessa conexão.
 - [ ] Fase 3 Conteudo      [ ] .publish-approved
 - [ ] Fase 5 GMN
 
