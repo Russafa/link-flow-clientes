@@ -24,17 +24,31 @@ slug: telas-padrao
 > Coletado no BLOCO 2. Usado no schema openingHours, rodape e FAQ.
 
 ## Ambiente de Publicacao
-- WordPress URL: https://telaspadrao.com.br (a confirmar se é WordPress — não verificado nesta sessão)
+- WordPress URL: https://telaspadrao.com.br — confirmado WordPress 7.1, PHP 8.2.30 (via `site-info-get`, 2026-09-02)
 - Application Password: (NUNCA visivel ao cliente — guardado pelo sistema)
-- Novamira: ( ) instalado  Abilities: [A VERIFICAR via discover-abilities]
+- Novamira: (x) instalado — v1.12.0 ativo (update disponível: 1.12.1). Conectado via MCP nativo do Claude Code (`novamira-telaspadrao-com`, OAuth escopo `mcp`), não via CLI standalone `novamira` (esse continua bloqueado por bug de Windows Credential Manager — ver nota em Estado das Fases).
+  Abilities confirmadas via `discover-abilities` em 2026-09-02:
+  - **Liberadas** para esta credencial OAuth: `hostinger-ai-assistant/site-info-get`; todo o bloco `hostinger-ai-assistant/elementor-*` (list-pages, get-page-structure, get-active-kit, get-kit-by-id, find-widgets, get-widget-by-id, update-widget-content/image/link/styles, assign-global-color, update-global-styles, create/update/delete-container); `yoast-seo/get-seo-scores` e `get-readability-scores`; todo o bloco `novamira/*` (execute-php, read/write/edit/delete-file, list-directory, create-upload-link, create-admin-access-link, agent-context, gutenberg-*, skill-*, design system).
+  - **Bloqueadas** (`403 rest_oauth_route_forbidden`) para esta credencial: todo o resto do namespace `hostinger-ai-assistant/*` testado — `pages-get`, `pages-search`, `menus-search`, `wp-settings-get` (não testei individualmente cada uma das ~50 abilities restantes do namespace — posts/tags/categorias/usuários/mídia/temas/plugins/revisões/template-parts —, mas o padrão consistente sugere que todo o bloco de CRUD de conteúdo está fora do escopo atual, só as abilities Elementor + site-info-get + novamira/* passam).
+  - `novamira/execute-php` funciona (testado, leitura de `wpseo_titles`), mas é bloqueado por padrão pelo classificador de segurança do Claude Code — exige confirmação explícita a cada chamada, não é "sempre disponível" na prática.
 > ⚠️ Este campo NÃO é fonte de verdade. O agente DEVE verificar as abilities reais via discover-abilities antes de assumir o que pode ou não fazer.
-- Tema / templates da designer (Money Page / Post): [A CONFIGURAR]
-- Backup automatico: ( )
+- Tema / templates da designer (Money Page / Post): **Hello Elementor 3.5.1** (tema base minimalista, sem estilo próprio) + **Elementor 4.2.4 + Elementor Pro 3.28.3** (builder real de 100% do conteúdo — 11 páginas/posts usam `_elementor_data`). Kit de template usado como base: **"Dustrium - Template kit for Industrial & Manufacturing"** (kit_id 129, ativo). Ver `## Molde de Money Page` abaixo para o inventário de widgets.
+- Backup automatico: All-in-One WP Migration and Backup 7.110 instalado e ativo — permite export manual; agendamento automático NÃO verificado (ability para checar configuração do plugin está fora do escopo OAuth atual).
 
 ## Molde de Money Page
-- molde_id: [A CONFIGURAR — Fase 2]
-- molde_slug: [A CONFIGURAR — Fase 2]
-- inventario_widgets: [A PREENCHER — Fase 2, leitura do _elementor_data]
+- molde_id: 7 (post_id WordPress da página `/telas_soldadas/`, kw_principal "tela soldada")
+- molde_slug: telas_soldadas
+- inventario_widgets: (lido via `elementor-get-page-structure` em 2026-09-02, `_elementor_data` real de `post_id 7`)
+  - 19 containers (layout aninhado: hero full-width com background de imagem → seções de conteúdo → grid 2x3 de aplicações → CTA final com background de imagem)
+  - **heading** × 7 (`6a126f1e`, `1769dbbe`, `996d462`, `4dd4aaeb`, `1faad44c`, `389f14d`, `cc9527d`)
+  - **text-editor** × 4 (`6b6a0c77`, `5436ebae`, `13fd58ea`, `2038977c`)
+  - **icon-list** × 1 (`78d7440c` — características do produto)
+  - **icon-box** × 6 (`54ed4417`, `356d141b`, `606aef9a`, `65291432`, `23f4b3d7`, `6e6a5233` — ícones das 6 aplicações)
+  - **image** × 8 (`5e5f3bfe`, `4567f61c`, `b4f1a7e`, `15a1f8ae`, `1a1c308e`, `5d1b607c`, `1817bbba`, `24e7e6b5`)
+  - **button** × 8 (`122c2b5`, `1de04c2d`, `3016cbf9`, `277a57d2`, `31af1f79`, `4fdfb1a0`, `2b33fdef`, `7e905679` — 6× "saiba mais" nos cards de aplicação + "FAÇA SEU PEDIDO" + "fale conosco" no CTA final)
+  - **divider** × 1 (`4d1056da`)
+  - Total: 35 widgets em 19 containers
+  - Página irmã `/telas_soldadas_modelos/` (post_id 489) e `/telas_onduladas/` (post_id 398) reaproveitam os MESMOS container-IDs base (`45de065d`, `19f349c`, `1a4107e`, `2c9e447a`), confirmando que as 4 páginas de produto foram clonadas de um template comum — uma alteração estrutural no molde tende a precisar ser replicada manualmente nas outras 3, pois não usam Template/Theme Builder do Elementor Pro (conteúdo direto por página, sem template compartilhado de fato).
 
 > molde_id e molde_slug: preenchidos no setup do cliente (antes da Fase 3).
 > inventario_widgets: preenchido pelo agente na ETAPA 3 do SKILL.md ao ler o _elementor_data.
@@ -98,16 +112,16 @@ Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 
 - Mapa de URLs: ver `arquiteto-seo/estrategia_seo_catumbitelas.com.br.md` e `arquiteto-seo/paginas.json` — gerados a partir de `domain_top_pages`/`domain_overview` do concorrente líder (catumbitelas.com.br), sem crawl completo (sandbox de rede desta sessão bloqueia WebFetch para domínios externos — ver nota nas H2s dos Concorrentes)
 
 ## Money Pages
-> wp_post_id não preenchido — WordPress do cliente ainda não conectado via Novamira nesta sessão (ver Ambiente de Publicacao). "—" nas linhas GAP = página ainda não existe.
+> wp_post_id preenchido em 2026-09-02 (via `elementor-list-pages`/`site-info-get`) para as páginas que já existem — Novamira conectado (ver Ambiente de Publicacao). "—" nas linhas GAP = página ainda não existe. Slugs reais confirmados via `page-sitemap.xml` usam underscore, não hífen (ver nota em Raio-X Tecnico).
 
 | Slug | Template | KW principal | Volume/mês | wp_post_id | Status |
 |---|---|---|---|---|---|
-| / (home) | — | telas padrão (branded) | 320/mes | — | pendente (existe — já #1 orgânico, manter) |
-| /telas_soldadas/ | — | tela soldada | 9.900/mes | — | pendente (existe — posição 46/50, precisa otimização forte) |
-| /telas_soldadas_modelos/ | — | modelos de tela | 720/mes | — | pendente (existe — posição 24) |
-| /telas_onduladas/ | — | tela ondulada | 2.400/mes | — | pendente (existe — fora do top 20 nacional na SERP consultada, checar indexação) |
-| /tela-ondulada-ou-tela-eletrosoldada-qual-a-melhor-para-o-seu-projeto/ | — | telas corrugadas | 260/mes | — | pendente (existe, é blog comparativo — manter como conteúdo de apoio, não money page) |
-| /tela-ondulada-ou-tela-eletrosoldada-qual-a-melhor-para-o-seu-projeto-3/ | — | tipos de tela metálica | 170/mes | — | pendente (existe, variante da página acima — avaliar consolidar/canonicalizar) |
+| / (home) | — | telas padrão (branded) | 320/mes | 138 | pendente (existe — já #1 orgânico, manter) |
+| /telas_soldadas/ | — | tela soldada | 9.900/mes | 7 | pendente (existe — posição 46/50, precisa otimização forte; molde_id da Fase 2, ver Molde de Money Page) |
+| /telas_soldadas_modelos/ | — | modelos de tela | 720/mes | 489 | pendente (existe — posição 24) |
+| /telas_onduladas/ | — | tela ondulada | 2.400/mes | 398 | pendente (existe — fora do top 20 nacional na SERP consultada, checar indexação) |
+| /tela-ondulada-ou-tela-eletrosoldada-qual-a-melhor-para-o-seu-projeto/ | — | telas corrugadas | 260/mes | 786 | pendente (existe, é blog comparativo — manter como conteúdo de apoio, não money page) |
+| /tela-ondulada-ou-tela-eletrosoldada-qual-a-melhor-para-o-seu-projeto-3/ | — | tipos de tela metálica | 170/mes | — (não localizado por título exato em `elementor-list-pages`; existe no `post-sitemap.xml` junto com 2 outras variantes -2 e -4 do mesmo slug — ver achado de conteúdo duplicado no Raio-X Tecnico) | pendente (existe, variante da página acima — avaliar consolidar/canonicalizar) |
 | /alambrado/ (a criar) | — | alambrado | 22.200/mes | — | pendente (GAP — maior volume do nicho, os 3 concorrentes têm página dedicada) |
 | /tela-de-aco-inox/ (a criar) | — | tela de aço | 3.600/mes (nacional) | — | pendente (GAP — telasmm.com.br rankeia pos. 26 nesta KW com página dedicada de "tecidos metálicos de aço inoxidável"; cliente já cita "aço inox" no catálogo mas sem página de produto própria) |
 
@@ -115,8 +129,8 @@ Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 
 
 ## Sitemap do cliente
 > Preenchido por `linkflow configurar` se sitemap fornecido no intake.
-- sitemap_url (tentativas):
-- sitemap_status:
+- sitemap_url (tentativas): `https://telaspadrao.com.br/sitemap_index.xml` (Yoast — confirmado com URLs reais em `page-sitemap.xml`/`post-sitemap.xml`, HTTP 200); também existe `https://telaspadrao.com.br/sitemaps.xml` (declarado pelo bloco gerenciado do Cloudflare no robots.txt, HTTP 200, conteúdo não inspecionado em detalhe)
+- sitemap_status: acessível publicamente e NÃO bloqueado para crawlers de busca padrão (`User-agent: * / Allow: /` no bloco Yoast do robots.txt). **Porém o robots.txt bloqueia explicitamente vários bots de IA** (regra gerenciada pelo Cloudflare, `Disallow: /` para cada um): Amazonbot, Applebot-Extended, Bytespider, CCBot, **ClaudeBot**, CloudflareBrowserRenderingCrawler, Google-Extended, GPTBot, meta-externalagent. Também declara `Content-Signal: search=yes, ai-train=no, use=reference` para o user-agent geral. Isso não afeta indexação/SEO tradicional, mas impede rastreamento e citação por LLMs (relevante para qualquer estratégia de GEO/AEO na Fase 3) — vale confirmar com a Priscila/cliente se esse bloqueio de IA foi uma decisão consciente.
 
 ## Baseline (Fase 1)
 - Data: 2026-08-26
@@ -134,7 +148,7 @@ Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 
 - auditoria_global: não rodada — cliente não tem WordPress/Novamira conectado nesta sessão; não avaliado se o site atual é WordPress
 - guardiao_fase1: PASS PARCIAL em 2026-08-26 (lista de concorrentes revisada no mesmo dia a pedido da Priscila — ver nota em Concorrentes) — kw_principal com volume real, 3 concorrentes definidos (relevância de catálogo + SERP overlap), baseline real via domain_overview e Money Pages reconciliadas. FALTA: H2s dos concorrentes (WebFetch bloqueado pelo proxy de rede desta sessão para domínios externos) — rodar antes de escrever a Money Page de "tela soldada" na Fase 3.
 - [x] Fase 1 Planejamento  [x] .approved (2026-08-27) — arquitetura (4 silos: Telas Soldadas, Telas Onduladas, Tela de Aço Inox, Alambrado/Cercamento) aprovada pela Priscila
-- [ ] Fase 2 Site — PARCIALMENTE ADIANTADA em 2026-08-27, sem WordPress conectado. Bloqueio de conexão: nesta sessão remota (escopo GitHub) o classificador de permissões bloqueou a instalação do Novamira CLI (`curl | sh` e até `npm view`) e o WebFetch a domínios externos; Priscila instalou o Novamira CLI localmente (Windows). Lá o OAuth completo do `novamira auth login 'https://telaspadrao.com.br/'` FUNCIONA de ponta a ponta (tudo HTTP 200, confirmando que o site/Hostinger não bloqueia o Novamira), mas o CLI falha ao persistir o token no Windows Credential Manager (`The OS credential service could not complete the operation`, reproduzido em 2 shells) — provável bug do CLI em ambiente Windows, reportado ao suporte do Novamira. Enquanto isso, adiantei em `## Raio-X Tecnico` a parte que dá para levantar sem acesso ao WordPress (árvore de silos do concorrente líder, URL/plataforma via Ubersuggest+WebSearch, gap analysis do cliente com dados já reais da Fase 1, handoff preliminar para Fase 3) — schema, CSR/SSR, sitemap e o molde de Money Page continuam bloqueados até a conexão persistir.
+- [ ] Fase 2 Site — CONEXÃO RESOLVIDA em 2026-09-02. O CLI standalone `novamira` continua com o bug de Windows Credential Manager (não corrigido — issue aberto no GitHub `use-novamira/novamira-cli`), mas o site foi conectado por outra via: MCP nativo do Claude Code (`claude mcp add --transport http --scope user novamira-telaspadrao-com https://telaspadrao.com.br/wp-json/mcp/novamira-oauth` + autenticação OAuth própria do Claude Code, sem depender do Credential Manager). Com a conexão real ativa, preenchidos em 2026-09-02: `## Ambiente de Publicacao` (Novamira confirmado + abilities reais + tema/builder), `## Molde de Money Page` (inventário completo de `/telas_soldadas/`), `## Sitemap do cliente`, e as subseções "Schema do cliente" / "SEO Técnico do cliente" em `## Raio-X Tecnico`. Pendências que ainda exigem WordPress: nenhuma crítica para a Fase 2 — os itens de "H2s dos Concorrentes" (WebFetch externo bloqueado) continuam pendentes para a Fase 3, mas são de domínios de concorrentes, não do cliente.
 - [ ] Fase 3 Conteudo      [ ] .publish-approved
 - [ ] Fase 5 GMN
 
@@ -178,11 +192,33 @@ Ver `arquiteto-seo/estrategia_seo_catumbitelas.com.br.md` (engenharia reversa co
 |---|---|---|---|
 | _(não verificado — exige inspeção de HTML, WebFetch bloqueado nesta sessão)_ | | | |
 
+#### Schema do cliente (telaspadrao.com.br) — verificado em 2026-09-02
+Inspeção real de HTML (JSON-LD público) + `wpseo_titles` via `execute-php` para `/telas_soldadas/` (molde) e `/telas_onduladas/`:
+
+| Página | Schemas detectados (JSON-LD `@graph`) | yoast_title | yoast_desc |
+|---|---|---|---|
+| /telas_soldadas/ | `WebPage`, `ImageObject`, `BreadcrumbList`, `WebSite` (com `SearchAction`) | "Tela Soldada - Telas Sob Medida" | Preenchido, mas é auto-excerto do conteúdo da página (começa repetindo H1/H2, corta com "…") — NÃO parece ser meta description escrita/otimizada à mão |
+| /telas_onduladas/ | `WebPage`, `ImageObject`, `BreadcrumbList`, `WebSite` (com `SearchAction`) | "Tela Ondulada - Telas Sob Medida" | Mesmo padrão — auto-excerto, não trabalhada |
+
+- **Faltando em ambas:** `Organization`/`LocalBusiness` (endereço, telefone, área de atendimento), `Product`/`Service` (a página é de produto mas não emite schema de produto), `FAQPage`, `AggregateRating`/`Review` (apesar do site citar "5 estrelas no Google" na home).
+- **Configuração global do Yoast** (`get_option('wpseo_titles')`, via `execute-php`): `company_or_person` = "company", `company_name` = **"Telas Padrão"** (bate exatamente com o NAP confirmado pela Priscila), `person_name` = vazio, `company_logo`/`company_logo_id` = vazio/0 (nenhum logo configurado para o schema).
+- **Inconsistência encontrada:** o "site title" geral do WordPress (`site_name` retornado por `site-info-get`) é **"Telas Sob Medida"**, diferente do `company_name` do schema Yoast ("Telas Padrão") e do `<title>` das páginas ("... - Telas Sob Medida"). O NAP oficial é "Telas Padrão" — o `<title>` das páginas usando "Telas Sob Medida" como sufixo é uma inconsistência de marca a corrigir na Fase 3.
+- Yoast SEO (28.4) e SEOPress (10.1) estão ativos **simultaneamente**; o schema encontrado bate com o padrão de saída do Yoast, então SEOPress provavelmente não está gerando o schema efetivo (não confirmado qual plugin está de fato "vencendo" — recomendo desativar um dos dois na Fase 3 para evitar tags duplicadas).
+
 ### SEO Tecnico (concorrente lider)
 - URL limpa: NÃO — URLs longas e descritivas, incluem malha/fio/dimensão no slug (ex.: `/telas/construcao-civil/tela-soldada-malha-75mm-x-50mm-fio-2-10-mm-largura-de-2-00m-preco-por-metro`), confirmado via `domain_top_pages`/`organicKeywords` reais (não é suposição)
 - CSR/SSR: NÃO CONFIRMADO diretamente — via `WebSearch`, o site roda na plataforma de e-commerce nacional **Plugoo**; plataformas desse tipo costumam ser SSR, mas isso é inferência, não verificação de HTML
 - Snippets/rich results: _(não verificado — exige inspeção de HTML)_
 - Sitemap: _(não localizado via busca; não verificado — exige acesso a `/sitemap.xml` ou `/robots.txt`, ambos bloqueados nesta sessão)_
+
+#### SEO Técnico do cliente (telaspadrao.com.br) — verificado em 2026-09-02
+- URL: slugs usam **underscore** (`/telas_soldadas/`, `/telas_onduladas/`, `/telas_alambrado/`, `/telas_soldadas_modelos/`) em vez de hífen — Google recomenda hífen; não é crítico, mas é um desvio de boa prática fácil de corrigir (implica redirect 301 se renomeado).
+- CSR/SSR: **SSR confirmado** — conteúdo completo (heading, texto, imagens) presente no HTML puro via `curl`, sem depender de JS. WordPress padrão + Elementor renderizando server-side.
+- Meta title/description: preenchidos em ambas as páginas testadas (não é fallback vazio), mas o conteúdo do `meta description` é um auto-excerto do corpo do texto, não copy otimizado — ver detalhe na subseção "Schema do cliente" acima.
+- Rich results: nenhum ativo hoje (só `WebPage`/`WebSite`/`BreadcrumbList` — ver "Schema do cliente"); nenhum `Product`/`Service`/`FAQPage` para gerar rich snippet nos resultados de busca.
+- Sitemap: acessível e funcional — ver `## Sitemap do cliente` (mais acima no arquivo) para URL e status completos, incluindo o bloqueio de bots de IA no robots.txt.
+- Plugins de SEO conflitantes: Yoast SEO e SEOPress ativos ao mesmo tempo (ver "Schema do cliente").
+- **Conteúdo duplicado (achado em 2026-09-02):** o `post-sitemap.xml` lista o mesmo artigo ("Tela ondulada ou tela eletrosoldada...") repetido 4× em slugs diferentes (base + `-2` + `-3` + `-4`). Além disso, 3 outros posts existem no Elementor (`elementor-list-pages`: id 1077 "Tela Inox ou Galvanizada...", id 1079 "Aço Inox no cotidiano...", id 1026 "5 Motivos para escolher Tela Soldada Galvanizada...") mas NÃO aparecem no sitemap público — possivelmente despublicados/noindex. Não alterei nada; recomendo confirmar com a Priscila/cliente antes de consolidar ou remover.
 
 ### Diagnostico do Site do Cliente (se tem site)
 - Tem site: ( x ) sim  ( ) nao
