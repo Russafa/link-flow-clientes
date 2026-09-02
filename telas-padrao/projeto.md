@@ -134,7 +134,7 @@ Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 
 - auditoria_global: não rodada — cliente não tem WordPress/Novamira conectado nesta sessão; não avaliado se o site atual é WordPress
 - guardiao_fase1: PASS PARCIAL em 2026-08-26 (lista de concorrentes revisada no mesmo dia a pedido da Priscila — ver nota em Concorrentes) — kw_principal com volume real, 3 concorrentes definidos (relevância de catálogo + SERP overlap), baseline real via domain_overview e Money Pages reconciliadas. FALTA: H2s dos concorrentes (WebFetch bloqueado pelo proxy de rede desta sessão para domínios externos) — rodar antes de escrever a Money Page de "tela soldada" na Fase 3.
 - [x] Fase 1 Planejamento  [x] .approved (2026-08-27) — arquitetura (4 silos: Telas Soldadas, Telas Onduladas, Tela de Aço Inox, Alambrado/Cercamento) aprovada pela Priscila
-- [ ] Fase 2 Site — BLOQUEADA em 2026-08-27: nesta sessão remota (escopo GitHub) o classificador de permissões bloqueou a instalação do Novamira CLI (`curl | sh` e até `npm view`) e o WebFetch a domínios externos, então Priscila instalou o Novamira CLI localmente (Windows, Claude Code local em `C:\Users\sanch\projetos\link-flow-clientes`). Lá o OAuth completo do `novamira auth login 'https://telaspadrao.com.br/'` FUNCIONA de ponta a ponta (descoberta, registro do client, troca de token, listagem de abilities, agent-context — tudo HTTP 200, confirmando que o site/Hostinger não bloqueia o Novamira), mas o CLI falha ao persistir o token no Windows Credential Manager (`The OS credential service could not complete the operation`), reproduzido tanto em Git Bash quanto em PowerShell nativo, com VaultSvc rodando normal e sem entrada conflitante salva. Hipótese mais provável: payload do token/metadados do Novamira excede o limite de ~2560 bytes de uma credencial genérica do Windows. Isso parece ser um bug do Novamira CLI em ambiente Windows, não algo configurável no WordPress/Hostinger ou nesta sessão — reportado ao suporte/GitHub do Novamira CLI com essas evidências. Raio-X Técnico, molde de Money Page e `_elementor_data` continuam dependendo dessa conexão persistir.
+- [ ] Fase 2 Site — PARCIALMENTE ADIANTADA em 2026-08-27, sem WordPress conectado. Bloqueio de conexão: nesta sessão remota (escopo GitHub) o classificador de permissões bloqueou a instalação do Novamira CLI (`curl | sh` e até `npm view`) e o WebFetch a domínios externos; Priscila instalou o Novamira CLI localmente (Windows). Lá o OAuth completo do `novamira auth login 'https://telaspadrao.com.br/'` FUNCIONA de ponta a ponta (tudo HTTP 200, confirmando que o site/Hostinger não bloqueia o Novamira), mas o CLI falha ao persistir o token no Windows Credential Manager (`The OS credential service could not complete the operation`, reproduzido em 2 shells) — provável bug do CLI em ambiente Windows, reportado ao suporte do Novamira. Enquanto isso, adiantei em `## Raio-X Tecnico` a parte que dá para levantar sem acesso ao WordPress (árvore de silos do concorrente líder, URL/plataforma via Ubersuggest+WebSearch, gap analysis do cliente com dados já reais da Fase 1, handoff preliminar para Fase 3) — schema, CSR/SSR, sitemap e o molde de Money Page continuam bloqueados até a conexão persistir.
 - [ ] Fase 3 Conteudo      [ ] .publish-approved
 - [ ] Fase 5 GMN
 
@@ -168,30 +168,36 @@ Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 
 
 ## Raio-X Tecnico (Fase 2)
 > Preenchido por fase2-site. Insumo para a Fase 3 (conteudo).
+> ⚠️ Preenchido PARCIALMENTE em 2026-08-27, adiantado sem Novamira/WordPress conectado (bloqueado — ver Estado das Fases). Baseado em `domain_top_pages`/`domain_overview` (Ubersuggest) e `WebSearch`, NÃO em crawl/inspeção direta de HTML — `WebFetch` continua bloqueado (`EGRESS_BLOCKED`) para todos os domínios externos testados, incluindo `catumbitelas.com.br` e `telaspadrao.com.br`. Schema, CSR/SSR e sitemap exigem inspeção de HTML real e ficam como pendência até o Novamira conectar (ou até o WebFetch ficar disponível).
 
 ### Arvore de Silos (concorrente lider)
-_(a mapear na Fase 2 - via sitemap)_
+Ver `arquiteto-seo/estrategia_seo_catumbitelas.com.br.md` (engenharia reversa completa). Resumo: catumbitelas.com.br organiza por pasta de categoria + 1 página por variação de produto (malha/fio/altura), ex. `/telas/construcao-civil/...`, `/casa-e-jardim/...`, `/protecao-de-muro/...`. Catálogo mais amplo que o da Telas Padrão (mosquiteiras, redes, chapas) — só a parte de telas metálicas estruturais é referência.
 
 ### Schema por tipo de pagina (concorrente lider)
 | Tipo de pagina | Schemas detectados | Combinados? | Acao no Yoast/WPCode |
 |---|---|---|---|
+| _(não verificado — exige inspeção de HTML, WebFetch bloqueado nesta sessão)_ | | | |
 
 ### SEO Tecnico (concorrente lider)
-- URL limpa: _(a verificar)_
-- CSR/SSR: _(a verificar)_
-- Snippets/rich results: _(a verificar)_
-- Sitemap: _(a verificar)_
+- URL limpa: NÃO — URLs longas e descritivas, incluem malha/fio/dimensão no slug (ex.: `/telas/construcao-civil/tela-soldada-malha-75mm-x-50mm-fio-2-10-mm-largura-de-2-00m-preco-por-metro`), confirmado via `domain_top_pages`/`organicKeywords` reais (não é suposição)
+- CSR/SSR: NÃO CONFIRMADO diretamente — via `WebSearch`, o site roda na plataforma de e-commerce nacional **Plugoo**; plataformas desse tipo costumam ser SSR, mas isso é inferência, não verificação de HTML
+- Snippets/rich results: _(não verificado — exige inspeção de HTML)_
+- Sitemap: _(não localizado via busca; não verificado — exige acesso a `/sitemap.xml` ou `/robots.txt`, ambos bloqueados nesta sessão)_
 
 ### Diagnostico do Site do Cliente (se tem site)
 - Tem site: ( x ) sim  ( ) nao
-- Gap analysis: _(a preencher se tem site)_
-- Veredito: ( ) consertar  ( ) reconstruir
-- Plano passo a passo: _(a preencher se tem site)_
+- Gap analysis: Baseado nos dados reais da Fase 1 (`domain_overview`/`domain_top_pages` de telaspadrao.com.br): o site já tem páginas dedicadas para os 2 primeiros silos da arquitetura aprovada (`/telas_soldadas/`, `/telas_onduladas/`) e um blog comparativo, mas rankeiam muito mal (ex.: posição 46 para "telas soldada", fora do top 20 para "tela ondulada") apesar de o produto/conteúdo já existir. Faltam completamente os silos "Tela de Aço Inox" e "Alambrado/Cercamento" (maior gap de volume). Não foi possível inspecionar tema/plugins/estrutura HTML real (Novamira bloqueado — ver Estado das Fases).
+- Veredito: ( x ) consertar  ( ) reconstruir — o site já tem estrutura de silo compatível com a arquitetura aprovada e conteúdo publicado; o problema aparenta ser otimização on-page/SEO técnico e páginas faltantes, não a plataforma em si. Vereditos que dependem de inspeção real do tema/HTML (Elementor, schema, Core Web Vitals) ficam condicionados à conexão do Novamira.
+- Plano passo a passo: (1) confirmar tema/builder real via Novamira quando conectar; (2) otimizar título/meta/conteúdo de `/telas_soldadas/` e `/telas_onduladas/` para as respectivas kw_principal; (3) criar as 2 páginas de silo faltantes (Alambrado, Tela de Aço Inox); (4) definir molde de Money Page e schema (Product/Service) — depende do Novamira.
 
 ### Reconciliacao de Money Pages
 > URLs do concorrente sem KW prevista na Fase 1 - decisao de incluir ou nao.
-_(a preencher na Fase 2)_
+Nenhuma nova além do já registrado na Fase 1 (`## Money Pages`) — o gap de Alambrado e Tela de Aço Inox já foi identificado e aprovado no Gate Humano 1. Não há páginas adicionais dos concorrentes fora do escopo do ICP que justifiquem inclusão.
 
 ### Handoff para Fase 3
 | Pagina | KW principal (Fase 1) | Estrutura | Schema recomendado |
 |---|---|---|---|
+| /telas_soldadas/ | tela soldada | Página de produto única (não subdividir por malha/fio, ao contrário do catumbitelas) | Product ou Service — confirmar com Novamira |
+| /telas_onduladas/ | tela ondulada | Página de produto única | Product ou Service — confirmar com Novamira |
+| /tela-de-aco-inox/ (a criar) | tela de aço | Página de produto única, espelhando telasmm.com.br | Product ou Service — confirmar com Novamira |
+| /alambrado/ (a criar) | alambrado | Página de produto/aplicação, maior prioridade | Product ou Service — confirmar com Novamira |
