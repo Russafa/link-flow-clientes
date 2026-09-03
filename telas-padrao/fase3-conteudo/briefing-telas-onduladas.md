@@ -118,10 +118,10 @@ NÃO reciclado do de telas_soldadas, escrito a partir do conteúdo desta página
 1. ~~Ler `_elementor_data` completo de post_id 398~~ ✅ 2026-09-03
 2. ~~Extrair H2s dos 3 concorrentes~~ ✅ 2026-09-03
 3. ~~Escrever title/meta finais e preencher `description` do schema Product~~ ✅ 2026-09-03
-4. **Apresentar para aprovação da Priscila** — em andamento (rascunho acima
-   apresentado no chat em 2026-09-03; Organization não precisa de nova
-   aprovação)
-5. Só depois de aprovado: aplicar (`update_post_meta` para yoast_title/desc,
-   novo bloco de schema Product em `wp-content/novamira-sandbox/`) e verificar
-   via `curl`
-6. Atualizar `## Money Pages` no `projeto.md` com o resultado
+4. ~~Apresentar para aprovação da Priscila~~ ✅ 2026-09-03 — **APROVADO como está**
+   (title, meta description ~161 caracteres e schema Product, sem alterações)
+5. **PENDENTE — aplicar numa sessão com escrita no Novamira:** `update_post_meta`
+   para yoast_title/desc de post_id 398, novo bloco de schema Product em
+   `wp-content/novamira-sandbox/` (mesmo padrão de `/telas_soldadas/`), e
+   verificar via `curl`
+6. Atualizar `## Money Pages` no `projeto.md` com o resultado após aplicar
