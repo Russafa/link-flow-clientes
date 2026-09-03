@@ -68,10 +68,9 @@ O cliente já cobre características/aplicações/tipos, mas não tem um H2
   }
 }
 ```
-> ⚠️ Este bloco `Organization` é GLOBAL (site inteiro), não só desta página —
-> só aplicar com aprovação explícita da Priscila (ver ETAPA 4 da skill
-> `fase3-conteudo`). NAP usado aqui é o confirmado no onboarding; CNPJ/razão
-> social ficam de fora por decisão da Priscila (ver `## NAP` no projeto.md).
+> ✅ APROVADO pela Priscila em 2026-09-03 — pode aplicar este schema `Organization`
+> global. NAP usado aqui é o confirmado no onboarding; CNPJ/razão social ficam
+> de fora por decisão da Priscila (ver `## NAP` no projeto.md).
 
 ```json
 {
@@ -89,9 +88,10 @@ O cliente já cobre características/aplicações/tipos, mas não tem um H2
 > o único tipo (a página oferece 4 variantes: galvanizada, eletrosoldada, aço
 > carbono, inox — ver "Tipos de Telas Soldada" no conteúdo real abaixo).
 
-4. **Conflito de plugins:** decidir com a Priscila se desativa Yoast ou
-   SEOPress antes de aplicar qualquer schema novo (os dois ativos ao mesmo
-   tempo podem gerar schema duplicado — ver achado no Raio-X Técnico).
+4. **Conflito de plugins — DECIDIDO em 2026-09-03 pela Priscila:** manter Yoast
+   SEO, desativar SEOPress (schema atual já vem do Yoast; mais usado/documentado
+   no mercado). Desativar antes de aplicar o schema `Organization`/`Product`
+   abaixo, para não gerar schema duplicado.
 
 ## Conteúdo real da página hoje (lido em 2026-09-03, `_elementor_data` de post_id 7)
 
