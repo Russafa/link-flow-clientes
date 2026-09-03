@@ -146,9 +146,9 @@ Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 
 
 ## Estado das Fases
 - auditoria_global: não rodada — cliente não tem WordPress/Novamira conectado nesta sessão; não avaliado se o site atual é WordPress
-- guardiao_fase1: PASS PARCIAL em 2026-08-26 (lista de concorrentes revisada no mesmo dia a pedido da Priscila — ver nota em Concorrentes) — kw_principal com volume real, 3 concorrentes definidos (relevância de catálogo + SERP overlap), baseline real via domain_overview e Money Pages reconciliadas. FALTA: H2s dos concorrentes (WebFetch bloqueado pelo proxy de rede desta sessão para domínios externos) — rodar antes de escrever a Money Page de "tela soldada" na Fase 3.
+- guardiao_fase1: PASS PARCIAL em 2026-08-26 (lista de concorrentes revisada no mesmo dia a pedido da Priscila — ver nota em Concorrentes) — kw_principal com volume real, 3 concorrentes definidos (relevância de catálogo + SERP overlap), baseline real via domain_overview e Money Pages reconciliadas. H2s dos concorrentes (KW "tela soldada") extraídos em 2026-09-03 via `WebFetch` — ver `## H2s dos Concorrentes`. Sem pendências conhecidas para liberar a Fase 3 escrever a Money Page de "tela soldada".
 - [x] Fase 1 Planejamento  [x] .approved (2026-08-27) — arquitetura (4 silos: Telas Soldadas, Telas Onduladas, Tela de Aço Inox, Alambrado/Cercamento) aprovada pela Priscila
-- [ ] Fase 2 Site — CONEXÃO RESOLVIDA em 2026-09-02. O CLI standalone `novamira` continua com o bug de Windows Credential Manager (não corrigido — issue aberto no GitHub `use-novamira/novamira-cli`), mas o site foi conectado por outra via: MCP nativo do Claude Code (`claude mcp add --transport http --scope user novamira-telaspadrao-com https://telaspadrao.com.br/wp-json/mcp/novamira-oauth` + autenticação OAuth própria do Claude Code, sem depender do Credential Manager). Com a conexão real ativa, preenchidos em 2026-09-02: `## Ambiente de Publicacao` (Novamira confirmado + abilities reais + tema/builder), `## Molde de Money Page` (inventário completo de `/telas_soldadas/`), `## Sitemap do cliente`, e as subseções "Schema do cliente" / "SEO Técnico do cliente" em `## Raio-X Tecnico`. Pendências que ainda exigem WordPress: nenhuma crítica para a Fase 2 — os itens de "H2s dos Concorrentes" (WebFetch externo bloqueado) continuam pendentes para a Fase 3, mas são de domínios de concorrentes, não do cliente.
+- [ ] Fase 2 Site — CONEXÃO RESOLVIDA em 2026-09-02 (MCP nativo do Claude Code, ver histórico). Em 2026-09-02 preenchidos com dados reais: `## Ambiente de Publicacao`, `## Molde de Money Page`, `## Sitemap do cliente`, subseções "Schema do cliente"/"SEO Técnico do cliente" em `## Raio-X Tecnico`. Em 2026-09-03: lido o `_elementor_data` COMPLETO (texto real, não só estrutura) de `/telas_soldadas/`, extraídos os H2s reais dos 3 concorrentes via `WebFetch`, e escrito um rascunho de `yoast_title`/`yoast_desc`/schema `Product.description` — ver `### Briefing de Otimização — /telas_soldadas/` em `## H2s dos Concorrentes`. **Nada disso foi aplicado no WordPress ainda** — aguardando revisão do copy com a Priscila (gate `.publish-approved`). Também NÃO decidido: schema `Organization` (global) e conflito Yoast SEO vs. SEOPress — aguardando repasse da decisão da Priscila.
 - [ ] Fase 3 Conteudo      [ ] .publish-approved
 - [ ] Fase 5 GMN
 
@@ -174,11 +174,48 @@ Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 
 > AUSENTE para uma KW = fase3-conteudo roda serp_analysis. NUNCA cai em template sem buscar primeiro.
 
 ### KW: tela soldada
-> ⚠️ H2s NÃO extraídos nesta sessão — `WebFetch` está bloqueado pelo proxy de rede do ambiente para todos os domínios externos testados (`EGRESS_BLOCKED`). Rodar novamente quando o WebFetch estiver disponível, antes da Fase 3 escrever a Money Page de "tela soldada" — NUNCA cair em template sem essa busca.
-- Concorrente 1: http://www.catumbitelas.com.br/telas/construcao-civil/tela-soldada-malha-75mm-x-50mm-fio-2-10-mm-largura-de-2-00m-preco-por-metro — H2s: (a extrair)
-- Concorrente 2: http://telasmm.com.br/fabricante-de-tela-soldada.php — H2s: (a extrair)
-- Concorrente 3: http://teciam.com.br/telas-soldadas-diferenciais-e-uso/ — H2s: (a extrair)
+> ✅ H2s extraídos em 2026-09-03 via `WebFetch` (disponível nesta sessão).
 
+- **Concorrente 1** — http://www.catumbitelas.com.br/telas/construcao-civil/tela-soldada-malha-75mm-x-50mm-fio-2-10-mm-largura-de-2-00m-preco-por-metro
+  H2: Tela Soldada Galvanizada Malha de 75x50mm... (título literal da variante) → Descrição Geral → ESPECIFICAÇÕES TÉCNICAS → CARACTERÍSTICAS → VANTAGENS → UTILIZAÇÃO → COMO INSTALAR → TABELA DE MEDIDAS → Produtos relacionados → Produtos visualizados
+  H3 (variantes de produto/malha): 4 títulos de produtos similares (outras malhas/rolos) + "Nenhum produto visitado"
+  Padrão: página de produto único de e-commerce, extremamente técnica/estruturada (specs, tabela de medidas, instalação) — reflete o catálogo por variação de malha/fio/altura já registrado em `Arvore de Silos`.
+
+- **Concorrente 2** — http://telasmm.com.br/fabricante-de-tela-soldada.php
+  H2: Fabricante de Tela Soldada → Sobre o produto da Fabricante de Tela Soldada Telas MM → Outros produtos da Fabricante de Tela Soldada Telas MM → Sobre a Fabricante de Tela Soldada Telas MM → Fale com a Fabricante de Tela Soldada Telas MM
+  H6 (produtos relacionados): Fabricante de Tela Soldada / Tela Fibra de Vidro / Tela para Cercamento / Peneira de Plástico
+  Padrão: página institucional simples (produto → outros produtos → sobre a empresa → contato), sem H3, menos técnica que a Catumbi.
+
+- **Concorrente 3** — http://teciam.com.br/telas-soldadas-diferenciais-e-uso/
+  H2: Detalhes Técnicos e Diferenciais do Produto → Algumas aplicações das Telas Soldadas → Por que escolher as telas soldadas da Teciam? → Você também pode gostar → Postagens recentes → Telas metálicas com qualidade superior → Assine nossa newsletter → Mapa do site → Siga-nos em nossas redes sociais → Fale Conosco
+  H3 (sob "Algumas aplicações"): 1. Construção civil / 2. Cercamentos e Segurança / 3. Logística / 4. Indústria / 5. Agronegócio
+  Padrão: post de blog otimizado (não página de produto pura) — combina detalhes técnicos + aplicações segmentadas por H3 + "por que escolher" (prova social/diferencial).
+
+**Gap real do cliente vs. os 3 concorrentes:** a página `/telas_soldadas/` do cliente já cobre "características" (via icon-list) e "aplicações" (via cards, sem H3 dedicado) e "tipos" (via lista), mas NÃO tem um H2 explícito de "Vantagens"/"Por que escolher" nem "Especificações Técnicas"/tabela de medidas (a Catumbi tem ambos; a Teciam tem "por que escolher"). Isso é insumo para a Fase 3 — não implementado agora, só registrado.
+
+### Briefing de Otimização — /telas_soldadas/ (rascunho — NÃO aplicado no WordPress)
+> Escrito em 2026-09-03 com base no `_elementor_data` REAL de `post_id 7` (lido widget a widget via `elementor-get-widget-by-id`, não apenas a estrutura/preview) + H2s reais dos 3 concorrentes (acima). Nenhuma especificação de produto (malha/fio/altura/preço, como a Catumbi expõe) foi inventada — só o que já está publicado na página do cliente foi usado. **Nada disto foi escrito no WordPress** — fica como rascunho até aprovação (gate `.publish-approved`).
+
+**Conteúdo real da página hoje (fonte usada para o rascunho):**
+- H1: "Tela soldada sob medida / Compre direto da fábrica"
+- Parágrafo intro: resistência/versatilidade/durabilidade, aço carbono ou inoxidável, opção galvanizada; "Na Telas Padrão, você encontra telas soldadas de alta qualidade, produzidas sob medida para atender projetos industriais, residenciais e agrícolas"; malhas eletrosoldadas, telas galvanizadas, painéis metálicos; aplicações: indústria, agronegócio, arquitetura/paisagismo, segurança patrimonial
+- Características (5 itens, icon-list): Alta Resistência Mecânica, Durabilidade Superior, Precisão Dimensional, Versatilidade de Uso, Conformidade com normas técnicas
+- "Com mais de 20 anos no mercado, a Telas Padrão fabrica telas soldadas sob medida..."
+- Tipos: Tela Soldada Galvanizada, Tela Eletrosoldada, Tela soldada em aço carbono, Tela soldada inox (cada uma com descrição curta)
+
+**Novo `yoast_title` (rascunho):**
+`Tela Soldada Sob Medida - Direto da Fábrica | Telas Padrão` (58 caracteres — troca o sufixo "Telas Sob Medida" por "Telas Padrão", batendo com o NAP oficial; reaproveita "sob medida" e "direto da fábrica" do H1 real, mantém a kw_principal "tela soldada")
+
+**Novo `yoast_desc` (rascunho — hoje era auto-excerto, agora escrito à mão):**
+`Tela soldada sob medida, direto da fábrica: aço carbono, inox ou galvanizada. Mais de 20 anos de experiência, entrega para todo o Brasil.` (~137 caracteres — inclui a kw_principal "tela soldada" logo no início; diferenciais usados são todos reais: "sob medida"/"direto da fábrica" do H1, os 3 materiais citados no parágrafo intro, "mais de 20 anos" do texto da seção de aplicações, e "entrega para todo o Brasil" — claim já documentado na Home do próprio site)
+
+**Campo `description` do schema Product (rascunho, briefing):**
+`Tela soldada sob medida, fabricada em aço carbono ou aço inoxidável, com opção de galvanização para maior proteção contra corrosão. Produzida com precisão para aplicações industriais, residenciais e agrícolas — indústria (divisórias, proteção de máquinas), agronegócio (cercas, viveiros, galinheiros), arquitetura e paisagismo (fachadas, jardins, estruturas) e segurança patrimonial (grades, portões, cercamentos). Fabricação própria, com mais de 20 anos de experiência.` (parafraseia diretamente os dois parágrafos reais da página — sem inventar dimensão/malha/fio/preço, que o cliente não expõe hoje)
+
+**Explicitamente FORA de escopo nesta rodada (por instrução):**
+- Schema `Organization` — é global (afeta o site inteiro), não decidido/aplicado agora.
+- Decisão entre manter Yoast SEO ou SEOPress ativo (ambos rodam simultaneamente hoje — ver "Schema do cliente") — não decidido por mim; aguardando repasse da decisão da Priscila.
+- Nenhuma escrita no WordPress (`elementor-update-widget-content`, meta title/description, schema) foi executada — só leitura. Aplicar fica condicionado à revisão do copy final com a Priscila.
 
 ## Raio-X Tecnico (Fase 2)
 > Preenchido por fase2-site. Insumo para a Fase 3 (conteudo).
