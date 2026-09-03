@@ -68,10 +68,9 @@ O cliente já cobre características/aplicações/tipos, mas não tem um H2
   }
 }
 ```
-> ⚠️ Este bloco `Organization` é GLOBAL (site inteiro), não só desta página —
-> só aplicar com aprovação explícita da Priscila (ver ETAPA 4 da skill
-> `fase3-conteudo`). NAP usado aqui é o confirmado no onboarding; CNPJ/razão
-> social ficam de fora por decisão da Priscila (ver `## NAP` no projeto.md).
+> ✅ APROVADO pela Priscila em 2026-09-03 — pode aplicar este schema `Organization`
+> global. NAP usado aqui é o confirmado no onboarding; CNPJ/razão social ficam
+> de fora por decisão da Priscila (ver `## NAP` no projeto.md).
 
 ```json
 {
@@ -89,9 +88,10 @@ O cliente já cobre características/aplicações/tipos, mas não tem um H2
 > o único tipo (a página oferece 4 variantes: galvanizada, eletrosoldada, aço
 > carbono, inox — ver "Tipos de Telas Soldada" no conteúdo real abaixo).
 
-4. **Conflito de plugins:** decidir com a Priscila se desativa Yoast ou
-   SEOPress antes de aplicar qualquer schema novo (os dois ativos ao mesmo
-   tempo podem gerar schema duplicado — ver achado no Raio-X Técnico).
+4. **Conflito de plugins — DECIDIDO em 2026-09-03 pela Priscila:** manter Yoast
+   SEO, desativar SEOPress (schema atual já vem do Yoast; mais usado/documentado
+   no mercado). Desativar antes de aplicar o schema `Organization`/`Product`
+   abaixo, para não gerar schema duplicado.
 
 ## Conteúdo real da página hoje (lido em 2026-09-03, `_elementor_data` de post_id 7)
 
@@ -126,8 +126,15 @@ O cliente já cobre características/aplicações/tipos, mas não tem um H2
 1. ~~Ler o `_elementor_data`/conteúdo atual completo de `/telas_soldadas/`~~ ✅ 2026-09-03
 2. ~~Extrair H2s dos 3 concorrentes~~ ✅ 2026-09-03
 3. ~~Escrever title/meta finais e preencher o schema `Product`~~ ✅ 2026-09-03 (rascunho acima)
-4. Decidir com a Priscila: manter Yoast ou SEOPress (não resolvido)
-5. Aplicar o schema `Organization` só após aprovação explícita da Priscila (não aplicado)
-6. Apresentar title/meta/schema Product para revisão da Priscila
-7. Só depois de aprovado (`.publish-approved`): escrever no WordPress via
-   `elementor-update-widget-content`/Yoast meta/schema injection
+4. ~~Decidir com a Priscila: manter Yoast ou SEOPress~~ ✅ 2026-09-03 — manter Yoast, desativar SEOPress
+5. ~~Aplicar o schema `Organization` só após aprovação explícita da Priscila~~ ✅ 2026-09-03 — APROVADO
+6. ~~Apresentar title/meta/schema Product para revisão da Priscila~~ ✅ 2026-09-03 — APROVADO como está
+7. **PENDENTE — precisa rodar numa sessão com acesso de escrita ao Novamira:**
+   - Desativar plugin SEOPress
+   - Atualizar `yoast_title`/`yoast_desc` de `/telas_soldadas/` (post_id 7) com o
+     title/meta aprovados acima
+   - Injetar o schema `Organization` (global) e `Product` (desta página) — via
+     Yoast custom schema ou WPCode, o que a Priscila preferir na hora
+   - Depois de publicado: atualizar a tabela `## Money Pages` no `projeto.md`
+     (status → publicado, data) e marcar `.publish-approved` em
+     `## Estado das Fases`
