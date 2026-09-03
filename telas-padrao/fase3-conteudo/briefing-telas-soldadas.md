@@ -1,15 +1,15 @@
-# Briefing de Otimização — /telas_soldadas/ (molde_id 7)
+# Briefing de Otimização — /telas_soldadas/ (molde_id 7) — ✅ PUBLICADO
 
 Gerado em 2026-09-03, ETAPA 1 e 2 da Fase 3 (`fase3-conteudo`). Primeira Money
 Page escolhida: já existe, é o produto core, maior volume de busca (9.900/mês
 nacional em "tela soldada", SD 14 — baixa dificuldade) e a pior posição atual
 (46º para a variante "telas soldada"). ROI mais rápido do que criar página nova.
 
-> ✅ Atualizado em 2026-09-03 numa sessão local com Novamira + WebFetch disponíveis:
-> `_elementor_data` completo de `/telas_soldadas/` lido widget a widget (não só
-> a estrutura), H2s dos 3 concorrentes extraídos, e os campos abaixo preenchidos
-> com dados reais. **Nada foi escrito no WordPress** — segue como rascunho até
-> a Priscila revisar o copy (gate `.publish-approved`).
+> ✅ **APLICADO EM PRODUÇÃO em 2026-09-03**, com aprovação explícita da Priscila
+> (repassada pela conta): yoast_title/yoast_desc atualizados, schema
+> `Organization`+`Product` injetados, SEOPress desativado. Tudo verificado ao
+> vivo via `curl`. Ver `## Próximo passo` no fim deste arquivo para o detalhe
+> técnico de cada mudança.
 
 ## O que já sabemos (Fase 1/2, dados reais)
 
@@ -126,8 +126,13 @@ O cliente já cobre características/aplicações/tipos, mas não tem um H2
 1. ~~Ler o `_elementor_data`/conteúdo atual completo de `/telas_soldadas/`~~ ✅ 2026-09-03
 2. ~~Extrair H2s dos 3 concorrentes~~ ✅ 2026-09-03
 3. ~~Escrever title/meta finais e preencher o schema `Product`~~ ✅ 2026-09-03 (rascunho acima)
-4. Decidir com a Priscila: manter Yoast ou SEOPress (não resolvido)
-5. Aplicar o schema `Organization` só após aprovação explícita da Priscila (não aplicado)
-6. Apresentar title/meta/schema Product para revisão da Priscila
-7. Só depois de aprovado (`.publish-approved`): escrever no WordPress via
-   `elementor-update-widget-content`/Yoast meta/schema injection
+4. ~~Decidir com a Priscila: manter Yoast ou SEOPress~~ ✅ 2026-09-03 — decisão repassada: manter Yoast, desativar SEOPress
+5. ~~Aplicar o schema `Organization` com aprovação explícita da Priscila~~ ✅ 2026-09-03
+6. ~~Apresentar title/meta/schema Product para revisão da Priscila~~ ✅ (aprovado, repassado como instrução direta)
+7. ~~Escrever no WordPress~~ ✅ **APLICADO em produção em 2026-09-03:**
+   - `_yoast_wpseo_title`/`_yoast_wpseo_metadesc` do post_id 7 atualizados via `update_post_meta` (`novamira/execute-php`)
+   - SEOPress desativado via `deactivate_plugins('wp-seopress/seopress.php')` (`novamira/execute-php`) — Yoast confirmado como único ativo
+   - Schema `Organization` (site-wide) + `Product` (só em post_id 7) injetados via `wp_head`, arquivo `wp-content/novamira-sandbox/schema-telas-soldadas.php` (`novamira/write-file`) — local recomendado pelo próprio Novamira para PHP persistente fora do core/tema
+   - **Verificado ao vivo via `curl`:** `<title>`, `<meta name="description">` e os 2 blocos `<script type="application/ld+json">` (Organization + Product) renderizando corretamente em `/telas_soldadas/`; `Organization` também confirmado na Home (site-wide) sem vazamento do `Product` para outras páginas.
+
+**Status: `/telas_soldadas/` publicada.** Próxima Money Page a trabalhar (por volume/prioridade, ver `## Money Pages` no `projeto.md`): `/telas_onduladas/`, depois os GAPs `/alambrado/` e `/tela-de-aco-inox/` (a criar).
