@@ -126,6 +126,15 @@ Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 
 | /tela-de-aco-inox/ (a criar) | — | tela de aço | 3.600/mes (nacional) | — | pendente (GAP — telasmm.com.br rankeia pos. 26 nesta KW com página dedicada de "tecidos metálicos de aço inoxidável"; cliente já cita "aço inox" no catálogo mas sem página de produto própria) |
 
 ## Artigos / Clusters (v1.1)
+> Programação de 8 artigos de blog de apoio ao silo "Telas Soldadas", gerada em
+> 2026-10-08 a partir de pesquisas reais do Ubersuggest fornecidas pela
+> Priscila (keywords + content ideas da SERP de "tela soldada") — ver
+> `fase3-conteudo/calendario-artigos.md` para a tabela completa, volumes e
+> fontes. Nenhum artigo escrito ainda. **Pré-requisito antes de publicar:**
+> decisão da Priscila sobre os 3 posts órfãos já existentes no Elementor
+> ("Tela Inox ou Galvanizada", "Aço Inox no cotidiano", "5 Motivos para
+> escolher Tela Soldada Galvanizada") e o conteúdo duplicado do sitemap — ver
+> achados no `## Raio-X Tecnico` — para não canibalizar ângulos já cobertos.
 
 ## Sitemap do cliente
 > Preenchido por `linkflow configurar` se sitemap fornecido no intake.
