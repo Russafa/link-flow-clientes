@@ -90,6 +90,7 @@ Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 
   3. Tela de aço inox sob medida
   4. Telas para alambrado/cercamento (aplicação de maior volume de busca, hoje sem página dedicada — ver GAP em Money Pages)
 - Publico-alvo: Empresas de construção civil, indústrias, condomínios e produtores rurais em todo o Brasil que compram tela metálica sob medida (soldada, ondulada, aço inox) para cercamento, segurança e uso industrial/agropecuário — compra B2B/B2C via e-commerce com entrega nacional, não é negócio hiperlocal.
+- **Fora do catálogo (confirmado pela Priscila em 2026-10-08):** Malha POP e telas para construção civil/reforço estrutural (laje, alvenaria, piso industrial) — NÃO propor Money Pages, artigos ou KWs nesses temas em fases futuras.
 - `kw_principal`: tela soldada (9.900 buscas/mês nacional, SD 14 — baixa dificuldade)
 - KWs secundarias (volume real nacional, locId 2076): alambrado (22.200/mês), tela alambrado (9.900/mês), tela de alambrado (8.100/mês), tela soldada galvanizada (3.600/mês), tela ondulada (2.400/mês), tela para alambrado (2.900/mês). Volume local (São Paulo, locId 1001773): tela soldada (390/mês), tela de aço inox (70/mês).
 
@@ -135,6 +136,9 @@ Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 
 > ("Tela Inox ou Galvanizada", "Aço Inox no cotidiano", "5 Motivos para
 > escolher Tela Soldada Galvanizada") e o conteúdo duplicado do sitemap — ver
 > achados no `## Raio-X Tecnico` — para não canibalizar ângulos já cobertos.
+> **Restrição de catálogo (2026-10-08, decisão da Priscila):** a Telas Padrão
+> NÃO trabalha com Malha POP nem telas para construção civil/reforço
+> estrutural — excluído da programação e de rodadas futuras de pauta.
 
 ## Sitemap do cliente
 > Preenchido por `linkflow configurar` se sitemap fornecido no intake.

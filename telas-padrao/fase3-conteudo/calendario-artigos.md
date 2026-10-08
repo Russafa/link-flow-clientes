@@ -31,12 +31,23 @@ programação (evitar canibalização). Antes de publicar o Artigo 1 abaixo,
 decidir com a Priscila/cliente: republicar os 3 órfãos, ou descartá-los
 (se descartados, os ângulos deles podem entrar numa próxima rodada).
 
+## ⚠️ Exclusão por decisão da Priscila (2026-10-08)
+
+A Telas Padrão **não trabalha com Malha POP nem telas para construção civil**
+(reforço de laje/alvenaria/piso industrial) — mesmo aparecendo bastante no
+CSV de content ideas (é um produto adjacente comum em concorrentes de telas
+soldadas, mas fora do catálogo real do cliente). Removido desta programação:
+qualquer artigo sobre "Malha POP" ou comparativo com ela, e qualquer ângulo
+de "tela soldada para construção civil"/reforço estrutural. Essa exclusão
+vale também para rodadas futuras de pauta — não repropor esses temas sem
+confirmar antes que o catálogo mudou.
+
 ## Programação (ordem sugerida, por prioridade de volume + intenção)
 
 | # | Título de trabalho | KW principal (volume real, Ubersuggest) | Intenção | Baseado em (content ideas CSV) |
 |---|---|---|---|---|
 | 1 | Tela Soldada Galvanizada: o que é, vantagens e onde usar | tela galvanizada (9.900/mês) | Informacional, topo de funil — CUIDADO: termo genérico, alta concorrência (SD 10, mas volume alto por ser termo guarda-chuva) | combina "Para que serve a Tela Soldada" + achados de "tipos" |
-| 2 | Tela Soldada ou Malha POP: qual escolher para o seu projeto? | tela eletrosoldada (880/mês) + ângulo comparativo | Comparativo, decisório (fundo de funil) | "Tela Soldada e Malha POP: Diferenças, Quando Usar" / "Tela Soldada ou Malha Pop: Qual Escolher para Piso Industrial" (2 fontes concorrentes citam esse comparativo) |
+| 2 | O que é Tela Eletrosoldada e quais suas aplicações | tela eletrosoldada (880/mês) | Informacional — ângulo próprio, SEM comparação com Malha POP (excluída por decisão da Priscila) nem menção a construção civil | ângulo derivado da intenção informacional da própria KW, não de um título específico do CSV |
 | 3 | Tela Soldada Galvanizada ou de Segurança: qual a diferença? | tela quadrada galvanizada (590/mês) | Comparativo | "Tela Soldada ou Tela Segurança - Ideal Telas" |
 | 4 | Como instalar Tela Soldada sem erros: guia passo a passo | tela soldada preço (170/mês, intenção adjacente — artigo não é sobre preço, mas pode linkar para orçamento) | Instrucional/how-to | "5 erros a evitar na instalação da sua tela soldada" + "Como fazer a instalação correta da tela soldada em cercas" |
 | 5 | Tela Soldada em Rolo: como escolher a medida certa | rolo de tela galvanizada (260/mês) | Informacional/decisório | ângulo próprio — nenhuma fonte direta no CSV, cobre uma variação de compra (rolo vs chapa) relevante para o catálogo do cliente |
@@ -54,10 +65,11 @@ decidir com a Priscila/cliente: republicar os 3 órfãos, ou descartá-los
   keywords, descartada desta programação por falta de intenção clara). Tratar
   o Artigo 1 como conteúdo de autoridade de topo de funil, não como aposta
   principal de conversão.
-- **Artigos 2, 3 e 7** são todos comparativos (Malha POP, Tela de Segurança,
-  Tela Tecida) — é um padrão real que aparece repetido no CSV de content
-  ideas (vários concorrentes/blogs têm esse tipo de post), sugerindo que é um
-  gênero de conteúdo que historicamente atrai tráfego nesse nicho.
+- **Artigos 3 e 7** são comparativos (Tela de Segurança, Tela Tecida) — é um
+  padrão real que aparece no CSV de content ideas (concorrentes/blogs têm
+  esse tipo de post), sugerindo que é um gênero de conteúdo que historicamente
+  atrai tráfego nesse nicho. Malha POP foi excluída desse padrão (ver nota
+  acima) mesmo aparecendo mais vezes no CSV do que Tela de Segurança/Tecida.
 - Nenhum destes 8 KWs tem volume de SERP local (locId não especificado nas
   pesquisas enviadas) — assumir nacional, consistente com o negócio da Telas
   Padrão (entrega para todo o Brasil).
