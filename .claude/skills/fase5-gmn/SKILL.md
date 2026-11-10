@@ -65,7 +65,13 @@ Com o perfil localizado, confira e registre o estado real de cada item
   é preciso contar 1 a 1, mas registrar se está "vazio/poucas fotos
   genéricas" vs "completo").
 - **Posts/Produtos no perfil**: existem posts recentes (últimos 90 dias) ou
-  está abandonado?
+  está abandonado? Ao redigir postagens do GMN (texto + CTA), use sempre a
+  keyword real do produto no texto (sem forçar) e o botão "Saiba mais"
+  apontando para o WhatsApp da empresa, nunca para uma página do site —
+  padrão fixado com a Priscila (ver `## GBP (Fase 5)` → "Postagens GBP" no
+  `projeto.md` da Telas Padrão). Esta skill não tem acesso de escrita ao
+  painel do GMN — a publicação em si é sempre manual, feita pela
+  Priscila/cliente.
 - **Avaliações**: nº total e nota média (dado real, puxado do perfil) —
   e se a Priscila/cliente está respondendo às avaliações.
 - **Atributos**: ex. "atende toda a região", "fabricação própria" — quando

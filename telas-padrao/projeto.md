@@ -153,9 +153,19 @@ Concorrente líder (maior tráfego): **catumbitelas.com.br** — usado na Etapa 
 - SERP snapshot: (ver secao SERP acima)
 
 ## GBP (Fase 5)
-- locId:
-- Diagnostico (% completude):
-- NAP consistente com site: ( ) sim  ( ) nao
+- locId: perfil já existe e foi otimizado pela Priscila diretamente no painel do Google (2026-11-10) — link/Place ID não registrado nesta sessão (sessão remota sem acesso ao site/Maps; não localizado via WebSearch). Se precisar para auditorias futuras, colar o link aqui.
+- Diagnostico (% completude): não auditado por esta skill — Priscila informou já ter otimizado o perfil por conta própria antes de pedir ajuda com as postagens.
+- NAP consistente com site: ( ) sim  ( ) nao — não verificado nesta sessão (sem acesso ao perfil)
+
+### Postagens GBP (padrão)
+- **Regra fixa**: todo botão/CTA das postagens do GMN usa "Saiba mais" apontando para o WhatsApp da empresa (`https://api.whatsapp.com/send?phone=5511933460625`), nunca para uma página do site — decisão da Priscila em 2026-11-10.
+- Keyword real do produto sempre presente no texto (sem forçar), tom técnico e direto, sem medidas/especificações inventadas.
+
+| Data | Produto (foto) | KW usada | Texto | Status |
+|---|---|---|---|---|
+| 2026-11-10 | Alambrado (galvanizado e revestido em PVC) | alambrado | "Alambrado sob medida, direto da fábrica. Trabalhamos com alambrado em aço galvanizado e também revestido em PVC, para cercamento residencial, industrial e esportivo. Fabricação própria, com entrega para todo o Brasil. Peça seu orçamento personalizado agora mesmo." | redigido — publicação no painel do GMN é manual (sem acesso de escrita) |
+| 2026-11-10 | Tela Soldada (aço carbono, galvanizado, inox) | tela soldada | "Tela soldada sob medida, fabricada em aço carbono, galvanizado ou inox — você escolhe o material ideal para o seu projeto. Alta resistência mecânica e durabilidade, com fabricação própria há mais de 20 anos. Confira as opções e peça seu orçamento." | redigido — publicação manual |
+| 2026-11-10 | Tela Ondulada (aço galvanizado ou inox) | tela ondulada | "Tela ondulada sob medida, em aço galvanizado ou inoxidável, ideal para filtragem, proteção e aplicações industriais. Estrutura de fios ondulados que garante estabilidade e desempenho superior. Fale com a gente e peça seu orçamento." | redigido — publicação manual |
 
 ## Estado das Fases
 - auditoria_global: não rodada — cliente não tem WordPress/Novamira conectado nesta sessão; não avaliado se o site atual é WordPress
